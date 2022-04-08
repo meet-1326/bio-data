@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +24,10 @@ public class MainActivity extends AppCompatActivity {
     DatePicker date;
     RadioGroup gender;
     RadioButton button;
+    CheckBox swiming,danceing,hacking,other;
 
 
-    String name,surename,fathername,mothername,email,phon,address,religion,eduction,hobby;
+    String name,surename,fathername,mothername,email,phon,address,religion,eduction,hobby,hobby_list;
     int d,m,y,chek=0,Gender;
 
     @Override
@@ -50,7 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
         gender = findViewById(R.id.gender);
 
-
+        swiming = findViewById(R.id.swiming);
+        danceing = findViewById(R.id.danceing);
+        hacking = findViewById(R.id.hacking);
+        other = findViewById(R.id.other);
 
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 edsurename.setText("");
                 edfathername.setText("");
                 edmothername.setText("");
+                eddate.setText("");
                 edemail.setText("");
                 edphon.setText("");
                 edaddress.setText("");
@@ -87,9 +96,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        other.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (other.isChecked()){
+                    edhobby.setVisibility(View.VISIBLE);
+                }else {
+                    edhobby.setVisibility(View.GONE);
+                }
+            }
+        });
+
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(swiming.isChecked()){
+                    hobby_list+="Swiming,";
+                }else if(danceing.isChecked()){
+                    hobby_list+="Danceing,";
+                }else if(hacking.isChecked()){
+                    hobby_list+="Hacking,";
+                }
+
+                hobby_list+=edhobby.getText().toString();
 
                 name = edname.getText().toString();
                 surename = edsurename.getText().toString();
@@ -100,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 address = edaddress.getText().toString();
                 religion = edreligion.getText().toString();
                 eduction = ededuction.getText().toString();
-                hobby = edhobby.getText().toString();
+                hobby = hobby_list;
 
                 Gender = gender.getCheckedRadioButtonId();
                 button = findViewById(Gender);
@@ -120,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("religion",religion);
                 intent.putExtra("hobby",hobby);
                 startActivity(intent);
+                hobby_list="";
 
             }
         });

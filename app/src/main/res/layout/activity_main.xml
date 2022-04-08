@@ -235,6 +235,56 @@
                 android:textColorHint="@color/hint"
                 android:textSize="22sp"
                 android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/swiming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Swiming"
+                    android:layout_margin="2dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/status_bar"/>
+
+                <CheckBox
+                    android:id="@+id/danceing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Danceing"
+                    android:layout_margin="2dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/status_bar"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/hacking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hacking"
+                    android:layout_margin="2dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/status_bar"/>
+
+                <CheckBox
+                    android:id="@+id/other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Other"
+                    android:layout_margin="2dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/status_bar"/>
+
+            </LinearLayout>
             <EditText
                 android:id="@+id/edhobby"
                 android:layout_width="match_parent"
@@ -246,7 +296,8 @@
                 android:textColor="@color/status_bar"
                 android:textColorHint="@color/hint"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="match_parent"
