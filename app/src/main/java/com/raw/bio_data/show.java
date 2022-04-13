@@ -2,13 +2,18 @@ package com.raw.bio_data;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class show extends AppCompatActivity {
 
     TextView tvname,tvsurename,tvfathername,tvdate,tvgender,tvmothername,tvemail,tvphon,tvaddress,tvreligion,tveduction,tvhobby;
     String name,surename,fathername,date,gender,mothername,email,phon,address,religion,eduction,hobby;
+    Button call;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,8 @@ public class show extends AppCompatActivity {
         tvreligion = findViewById(R.id.tvreligion);
         tveduction = findViewById(R.id.tveduction);
         tvhobby = findViewById(R.id.tvhobby);
+
+        call = findViewById(R.id.call);
 
         name = getIntent().getStringExtra("name");
         surename = getIntent().getStringExtra("surename");
@@ -53,6 +60,15 @@ public class show extends AppCompatActivity {
         tvreligion.setText(religion);
         tveduction.setText(eduction);
         tvhobby.setText(hobby);
+
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:"+phon));
+                startActivity(intent);
+            }
+        });
 
     }
 }

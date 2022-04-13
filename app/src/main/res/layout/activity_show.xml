@@ -277,6 +277,17 @@
                     android:textColor="@color/status_bar"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+                
+                <Button
+                    android:id="@+id/call"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:text="Call"/>
 
             </LinearLayout>
             <LinearLayout
